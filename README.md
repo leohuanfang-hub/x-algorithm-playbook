@@ -21,7 +21,8 @@ Plus a pre-post check for long posts, threads and replies.
 | [`skills/x-algo-watch`](skills/x-algo-watch/SKILL.md) | Claude Code skill: "what changed in the X algorithm since…", updates the changelog |
 | [`skills/x-post-review`](skills/x-post-review/SKILL.md) | Claude Code skill: weekly / monthly review of your posts and replies → action list |
 | [`skills/x-post-check`](skills/x-post-check/SKILL.md) | Claude Code skill: check a long post, thread or reply before posting, then rewrite it |
-| [`prompts/audit-prompt.md`](prompts/audit-prompt.md) | The same pre-post check as a copy-paste prompt for Claude, ChatGPT or Grok |
+| [`prompts/audit-prompt.md`](prompts/audit-prompt.md) | The pre-post check as a copy-paste prompt for Claude, ChatGPT or Grok |
+| [`prompts/review-prompt.md`](prompts/review-prompt.md) | The weekly / monthly review as a copy-paste prompt that points your AI at `RULES.md` |
 
 ## Quick start
 
@@ -50,7 +51,11 @@ cp -r skills/* ~/.claude/skills/
 
 Then ask Claude Code: *"Review my X posts and replies from last week"* (paste or attach your numbers from X Analytics), *"Check this thread before I post it"*, or *"Did the X algorithm change since October 1?"*
 
-**No Claude Code?** Use [`prompts/audit-prompt.md`](prompts/audit-prompt.md) in any chatbot.
+**No Claude Code?** Use [`prompts/audit-prompt.md`](prompts/audit-prompt.md) before posting and [`prompts/review-prompt.md`](prompts/review-prompt.md) for your weekly review, in any chatbot. Or just give your AI this link:
+
+```
+https://raw.githubusercontent.com/leohuanfang-hub/x-algorithm-playbook/main/RULES.md
+```
 
 ## The 7-point checklist (short version)
 
