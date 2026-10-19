@@ -2,6 +2,19 @@
 
 Changes to X's For You ranking parameters, newest first, found by running `scripts/param_history.py` against [xai-org/x-algorithm](https://github.com/xai-org/x-algorithm). Dates are commit dates in the public repo; the production change may have happened earlier.
 
+## 2026-10-17 · commit 862a123 — new experiments, all off by default
+- New filter `ZeroFavCodivertFilter` ([zero_fav_codivert_filter.rs](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/home-mixer/filters/zero_fav_codivert_filter.rs)). One retrieval source finds posts that have **zero likes** (`ForYouPhoenixRetrievalZeroFav`). For viewers in the experiment, posts that came *only* from that source are removed unless the author is in the treatment group. All three switches default to `false`. Meaning for posters: X is testing how much distribution zero-like posts should get; nothing changes today. The first like still matters through the early-like lottery (see 2026-09-30).
+- New `EnablePostEngagers` (default `false`): would send up to 32 recent positive and 8 negative engagers of a post, with timestamps, into the ranking model. If turned on, *who* engaged with a post, not only how many, becomes a model input (inference).
+- Video carousel: author dedupe `false → true`, embedding dedupe `false → true`, semantic-ID dedupe levels `0 → 3`. The carousel module itself (`EnableVideoCarousel`) is still `false`, so no visible effect yet. If it turns on, one author or near-duplicate videos get at most one slot in it (inference).
+- Large rewrite of `abuse-enforcement-service` action control (levels, confidence, rollback). No rule in `RULES.md` changes; the low-quality AI label rule still reads the same.
+
+## 2026-10-16 · commit bc3948b
+- Video carousel embedding dedupe added (off) with similarity threshold 0.72. Plumbing only.
+
+## 2026-10-15 · commit 92f0918
+- Video carousel scoring parameters added: video-open weight 1.0, immersive "valid view" weight 0, long-dwell aggregation. Carousel still off.
+- Ads brand-safety fallback on author `false → true`. Affects ads, not organic posts.
+
 ## 2026-10-14 · commit 17c96bf
 - Like weight 0.6 → **0.66**
 - "Not interested" weight -47.52 → **-52.272** (second increase in two weeks)

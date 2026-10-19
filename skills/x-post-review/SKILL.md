@@ -13,8 +13,10 @@ description: Weekly or monthly review of your own X (Twitter) posts, calibrated 
 
 ## Steps
 
-1. **Split the posts** into: originals, thread posts after the first, replies to other accounts, posts with own video, posts with links. Report count, total impressions and median impressions for each group.
+1. **Split the posts** into: originals, thread posts after the first, replies to other accounts, posts with own video, posts with links. Report count, total impressions and median impressions for each group. Split replies further by the size of the account replied to (for example 20,000 followers and up vs below), and by how fast the reply came (within 60 minutes of the original vs later). Replies to a big account can carry most of an account's impressions while reaching only that account's reply section, so mixing them with small-account replies hides both patterns. A post's ID encodes its time (`(id >> 22) + 1288834974657` ms), so reply delay can be computed from the replied-to post's ID.
 2. **Funnel per group:** impressions → profile visits → follows. Name the group that actually produces followers, and the one that produces reach without followers.
+   - **Check concentration.** If one or two posts produced most of the period's follows (say more than half), say so and treat it as possibly chance, not as proof the format works. Name the post.
+   - **Reconcile with account totals.** The sum of per-post follows and profile visits is usually lower than the account-level totals on the Overview tab (some follows aren't tied to a post, and the two views may use different time windows or time zones). Report both numbers and their windows; don't present the per-post sum as the account's follower growth.
 3. **Check each rule** against what the user did:
    - Threads: how much of the reach came from post 1 vs later posts.
    - Video: own uploads vs quoted videos.
