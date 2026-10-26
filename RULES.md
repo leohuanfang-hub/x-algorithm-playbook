@@ -2,7 +2,7 @@
 
 What X's open-source For You algorithm does today, in plain English, with the exact source for each rule.
 
-- **Code version:** [xai-org/x-algorithm @ 862a123](https://github.com/xai-org/x-algorithm/tree/862a1235ca4d743cc48211309ebbbcc1a5a540a3) (October 17, 2026). The parameter file says it was last synced with production on October 16, 2026.
+- **Code version:** [xai-org/x-algorithm @ 6258a15](https://github.com/xai-org/x-algorithm/tree/6258a1549ef808be88fba83d3b2d58364b587ee0) (October 24, 2026). The parameter file says it was last synced with production on October 23, 2026, at 16:00:34 UTC.
 - **How to read the weights:** each weight multiplies the model's *predicted probability* that this viewer takes the action. It does not multiply raw counts. One report does not cancel 234 likes ([README, August 14 update](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/README.md#notable-updates)).
 - **Confidence:** "Code" means read in the source. "X staff" means a public post by X staff. "Inference" means our reading of what the code implies, not proven.
 
@@ -47,9 +47,11 @@ A post enters the video index only if the post itself carries the video; quoted 
 
 [config.rs L40](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/home-mixer/params/config.rs#L40).
 
-## 6. Low-quality AI content gets a 30-day label (Code)
+## 6. Low-quality AI content gets a 7-day label (Code)
 
-An account classified as low-quality AI content gets a "SpamHighRecall" label for 30 days, which removes its posts from recommendations to non-followers. Accounts above a follower threshold skip this check; the public threshold is a placeholder ("a mock value to reduce gaming"). ([enforcement_user.yaml L58-69](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/abuse-enforcement-service/service-lib/rules/enforcement_user.yaml#L58-L69))
+An account classified as low-quality AI content gets a newly applied "SpamHighRecall" label for 7 days, which removes its posts from recommendations to non-followers. Accounts above a follower threshold skip this check; the public threshold is a placeholder ("a mock value to reduce gaming"). ([enforcement_user.yaml L118-129](https://github.com/xai-org/x-algorithm/blob/6258a1549ef808be88fba83d3b2d58364b587ee0/abuse-enforcement-service/service-lib/rules/enforcement_user.yaml#L118-L129))
+
+The rule skips accounts already carrying the label; the change does not prove that existing labels expire sooner. Other spam rules can use different durations.
 
 ## 7. Links: no hard-coded penalty (Code + X staff + Inference)
 
@@ -62,6 +64,10 @@ Soliciting engagement ("I'll follow everyone who replies") 3 or more times remov
 ## 9. Check your own labels
 
 [x.com/i/jf/under_the_hood](https://x.com/i/jf/under_the_hood) shows visibility labels on your account and posts.
+
+## 10. Candidate places are allocated across retrieval sources (Code)
+
+`EnableFairShareRanking` defaults to true. When eligible (no cached posts, a scoring sequence is present and the ranker kill switch is off), the filter divides the candidate budget proportionally across retrieval source types and keeps each source's existing order. It does not divide places equally across authors or follower sizes. No small-account boost can be inferred from its name. ([fair_share_ranking_filter.rs](https://github.com/xai-org/x-algorithm/blob/6258a1549ef808be88fba83d3b2d58364b587ee0/home-mixer/filters/fair_share_ranking_filter.rs))
 
 ## Known unknowns
 
