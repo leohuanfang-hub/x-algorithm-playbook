@@ -2,7 +2,7 @@
 
 What X's open-source For You algorithm does today, in plain English, with the exact source for each rule.
 
-- **Code version:** [xai-org/x-algorithm @ 6258a15](https://github.com/xai-org/x-algorithm/tree/6258a1549ef808be88fba83d3b2d58364b587ee0) (October 24, 2026). The parameter file says it was last synced with production on October 23, 2026, at 16:00:34 UTC.
+- **Code version:** [xai-org/x-algorithm @ 2f25214](https://github.com/xai-org/x-algorithm/tree/2f252142b9284e692ac72851768c8072d045f0d5) (October 27, 2026). The parameter file says it was last synced with production on October 26, 2026, at 16:00:39 UTC.
 - **How to read the weights:** each weight multiplies the model's *predicted probability* that this viewer takes the action. It does not multiply raw counts. One report does not cancel 234 likes ([README, August 14 update](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/README.md#notable-updates)).
 - **Confidence:** "Code" means read in the source. "X staff" means a public post by X staff. "Inference" means our reading of what the code implies, not proven.
 
