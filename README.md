@@ -40,6 +40,9 @@ python3 scripts/param_history.py --since 2026-09-01
 2026-09-30  77d431a  ColdStartMaxPostAgeSecs: 172800 -> 7200
 ...
 2026-10-14  17c96bf  NotInterestedWeight: -47.52 -> -52.272
+...
+2026-11-05  021afa4  FavoriteWeight: 0.66 -> 0.708
+2026-11-05  021afa4  NotInterestedWeight: -52.272 -> -53.07
 ```
 
 **Use the skills in Claude Code**
@@ -62,9 +65,9 @@ https://raw.githubusercontent.com/leohuanfang-hub/x-algorithm-playbook/main/RULE
 1. Put your best idea in the first post. Strangers only see post 1 of a thread.
 2. Upload your own video, over 10 seconds. Quoted videos don't count.
 3. Stay online for the first 2 hours. The small-account boost only considers posts under 2 hours old.
-4. Write something people copy the link of. Copy link = 20, like = 0.66.
+4. Write something people copy the link of. Copy link = 20, like = 0.708.
 5. Build mutuals in your niche. Replies between mutual follows weigh 20 instead of 5.
-6. Never post from a template. "Not interested" = -52, and AI-slop labels last 30 days.
+6. Never post from a template. "Not interested" = -53, and a low-quality AI label hides you from strangers for 7 days.
 7. Put links in a reply.
 
 Details and sources: [`RULES.md`](RULES.md).
