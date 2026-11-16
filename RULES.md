@@ -2,7 +2,7 @@
 
 What X's open-source For You algorithm does today, in plain English, with the exact source for each rule.
 
-- **Code version:** [xai-org/x-algorithm @ 660cd74](https://github.com/xai-org/x-algorithm/tree/660cd7407c5726ec8d3aef27c32e1377b1c7e480) (November 10, 2026). The parameter file says it was last synced with production on November 9, 2026, at 16:00:34 UTC.
+- **Code version:** [xai-org/x-algorithm @ 30647a8](https://github.com/xai-org/x-algorithm/tree/30647a85a20cbdd114169beb9973680c4dc4f401) (November 14, 2026). The parameter file says it was last synced with production on November 13, 2026, at 16:00:28 UTC.
 - **How to read the weights:** each weight multiplies the model's *predicted probability* that this viewer takes the action. It does not multiply raw counts. One report does not cancel 234 likes ([README, August 14 update](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/README.md#notable-updates)).
 - **Confidence:** "Code" means read in the source. "X staff" means a public post by X staff. "Inference" means our reading of what the code implies, not proven.
 
@@ -20,7 +20,6 @@ What X's open-source For You algorithm does today, in plain English, with the ex
 
 | Action | Weight |
 |---|---|
-| Copy link to share | 20 |
 | Reply from someone who follows you back (original posts only) | 20 |
 | Reply | 5 |
 | Quote | 5 |
@@ -32,12 +31,13 @@ What X's open-source For You algorithm does today, in plain English, with the ex
 | Time spent after clicking | 0.385 × predicted duration (unit not documented) |
 | Open a link | 0.2 |
 | Click into the profile | 0 |
+| Copy link to share | 0 (was 20 until November 13, 2026) |
 | Not interested | -53.07 |
 | Mute author | -58.8 |
 | Block author | -31.2 |
 | Report | -234 |
 
-Source: [param.rs L400-540](https://github.com/xai-org/x-algorithm/blob/660cd7407c5726ec8d3aef27c32e1377b1c7e480/home-mixer/params/param.rs#L400-L540), mutual-follow boost in [weights.rs L84-91](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/xai-value-model/weights.rs#L84-L91) and [inputs.rs L20-22](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/xai-value-model/inputs.rs#L20-L22). The 2023 "author engages with your reply = 75" weight no longer exists.
+Source: [param.rs L400-540](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/home-mixer/params/param.rs#L400-L540), mutual-follow boost in [weights.rs L84-91](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/xai-value-model/weights.rs#L84-L91) and [inputs.rs L20-22](https://github.com/xai-org/x-algorithm/blob/862a1235ca4d743cc48211309ebbbcc1a5a540a3/xai-value-model/inputs.rs#L20-L22). The 2023 "author engages with your reply = 75" weight no longer exists.
 
 ## 4. Video only counts if it's your own upload (Code + X staff)
 
@@ -73,7 +73,7 @@ Soliciting engagement ("I'll follow everyone who replies") 3 or more times remov
 
 - How replies are ranked under a post is not in the repo.
 - The unit of the "time spent after clicking" weight is not documented.
-- `home-mixer/params/param.rs` (synced) has likes at 0.708; `vm-ranker/params.rs` still has 0.5.
+- `home-mixer/params/param.rs` (synced) has likes at 0.708 and copy-link share at 0; `vm-ranker/params.rs` still has 0.5 and 20. Which file serves production ranking for a given request is not documented.
 - Since November 5 the model also predicts how long a viewer keeps watching a video after opening it and how long they stay on your profile after clicking it. Both are weighted 0 in the home-mixer scorer today, so they do not change scores yet.
 - Some thresholds are deliberate placeholders in the public code.
 - X has not explained the September 30, 2026 cold-start change.
