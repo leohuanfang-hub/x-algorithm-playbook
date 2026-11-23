@@ -87,7 +87,7 @@ In Claude Code, the `x-algo-watch` skill runs this and explains each change in p
 1. **Put your best idea in the first post.** Strangers only see post 1 of a thread; every later post is a reply to yourself.
 2. **Upload your own video, over 10 seconds.** Quoted videos don't enter the video index.
 3. **Stay online for the first 2 hours.** The small-account boost only considers posts under 2 hours old.
-4. **Write something people send to a friend.** Sharing by DM is weighted 5 and a reply 5; a like 0.708. (Copy-link share was weighted 20 until November 13, 2026; it is now 0.)
+4. **Write something people send to a friend.** Copy-link share is weighted 20, sharing by DM 5 and a reply 5; a like 0.708. (Copy-link share was set to 0 on November 13, 2026 and back to 20 on November 18, so don't build on it alone.)
 5. **Build mutuals in your niche.** A reply between mutual follows weighs 20 instead of 5.
 6. **Never post from a template.** "Not interested" is weighted -53, and a low-quality AI label hides you from strangers for 7 days.
 7. **Put links in a reply.** There's no hard-coded link penalty, but link posts collect less engagement.

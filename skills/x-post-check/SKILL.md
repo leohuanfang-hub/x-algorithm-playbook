@@ -22,7 +22,7 @@ Answer each with PASS, FAIL or N/A and one sentence of reasoning.
 
 1. **Best idea in the first post.** In a thread, every post after the first is a reply to yourself. For You drops replies from accounts the viewer doesn't follow, and the stranger retrieval index skips self-replies. So only post 1 competes for strangers' feeds. FAIL if the strongest example, number or claim sits in post 2 or later.
 2. **Own video, over 10 seconds.** A post only enters the video index if the post itself carries the video. Quoting someone else's video doesn't count; re-uploading it trips duplicate detection. FAIL if the video is a quote or under 10 seconds.
-3. **Worth sending to someone.** Sharing by DM is weighted 5 and a reply 5, a like 0.708 (copy-link share dropped from 20 to 0 on November 13, 2026). PASS if the post contains something reusable a reader would forward or answer: a number, a tool, a checklist, a method, a prompt.
+3. **Worth sending to someone.** Copy-link share is weighted 20 (it was 0 from November 13 to 18, 2026, so treat it as unstable), sharing by DM 5 and a reply 5, a like 0.708. PASS if the post contains something reusable a reader would forward or answer: a number, a tool, a checklist, a method, a prompt.
 4. **A real question, no asks.** Replies are weighted 5 (20 between mutual follows). FAIL if it asks for likes, follows, reposts or "reply and I'll send you X": X removes accounts from creator payouts after 3 engagement asks.
 5. **Links in a reply.** No hard-coded link penalty, but link posts collect fewer likes and replies. FAIL if an external link is in the main post.
 6. **No template.** "Not interested" is weighted -53. FAIL if the opening or closing repeats a line from the user's recent posts.
